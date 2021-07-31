@@ -1,0 +1,26 @@
+{
+  "name": "ApiMongodbAuthentication",
+  "version": "1.0.0",
+  "description": "authentication and authorization",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "Authentication",
+    "Authorization"
+  ],
+  "author": "Raxmatov Eldorbek",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.6",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "joi": "^14.3.1",
+    "mongoose": "^5.13.5",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12"
+  }
+}

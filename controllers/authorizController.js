@@ -7,8 +7,12 @@ class authorizationCon {
 
   async authorization(req, res) {
     try {
-      const result = await ResultModel(req.body);
-      res.status(400).send(result);
+      const answer = await ResultModel(req.body);
+      if(answer.length == 0){
+        res.status(404).send({result: 'error',data:'Malumot topilmadi..'});
+      }else{
+        res.status(200).send({result: 'ok',data: answer});
+      }
     } catch (ex) {
       console.log('qidirishda xatolik:'+ex);
       console.log(req.body);

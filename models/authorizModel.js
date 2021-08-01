@@ -3,7 +3,7 @@ const db = require('../usedb/db');
 
 async function signin(reqB) {
   try {
-     return 'hellooo! your key '+reqB.password;
+     return await db.find({password:reqB.password});
   } catch (ex) {
      console.log('hujjatni topishda xatolik:' + ex);
      return 'xatolik:'+ex;

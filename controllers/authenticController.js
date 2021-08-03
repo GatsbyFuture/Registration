@@ -11,8 +11,11 @@ class authenticationCon {
       if(error){
         return res.status(400).send('Kirish validatorida xatolik:'+error);
       }else{
-        const result = await ResultModel(req.body);
-        res.status(400).send(result);
+        const answer = await ResultModel(req.body);
+        if(typeof(answer) == 'string')
+        res.status(400).send({result:'error',data:answer});
+        else
+        res.status(200).send({result:'ok',data:answer});
       }
     } catch (ex) {
       console.log('registrationda xatolik:'+ex);

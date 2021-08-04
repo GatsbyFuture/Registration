@@ -1,4 +1,4 @@
-require('dotenv').config({path:'./environment/parols.env'});
+require('dotenv').config({ path: './environment/parols.env' });
 // validatsiy qilish uchun npm obj...
 const joi = require('joi');
 // modeldan obj olamiz db dan malumotlarni olish uchun...
@@ -25,8 +25,8 @@ class authorizationCon {
           const isValidate = await bcrypt.compare(req.body.password, answer.password);
           if (!isValidate)
             return res.status(400).send({ result: 'error', data: 'Parol yoki email xato kiritilgan..' });
-          const token = jwt.sign({ _id: answer._id },config.get('jwtPrivateKey'));
-          res.header('x-auth-token',token) .send(true);
+          const token = jwt.sign({ _id: answer._id , admin:answer.isAdmin }, config.get('jwtPrivateKey'));
+          res.header('x-auth-token', token).send(true);
         }
       }
     } catch (ex) {

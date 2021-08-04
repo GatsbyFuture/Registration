@@ -28,7 +28,12 @@ const authcschema = new mongoose.Schema({
   type: String,
   required: true,
   min: 4
+ },
+ isAdmin:{
+  type:Boolean,
+  required:true
  }
+
 },{collection:'authenc'});
 
 module.exports = mongoose.model('authenc', authcschema);

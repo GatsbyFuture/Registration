@@ -25,7 +25,8 @@ class authenticationCon {
       const validatSchema = {
         name: joi.string().required().min(3),
         email: joi.string().required().min(7),
-        password: joi.string().required().min(4)
+        password: joi.string().required().min(4),
+        isAdmin: joi.boolean().required()
       };
       return joi.validate(bodM,validatSchema);
     }

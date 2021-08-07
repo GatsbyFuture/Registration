@@ -1,20 +1,20 @@
 // ulangan bazadan obj olish uchun..
-const db = require('../usedb/db');
+const db = require('../startup/db');
 
 async function readUsers() {
-      try {
+      // try {
             return await db.find();
-      } catch (ex) {
-            console.log('hujjatni topishda xatolik:' + ex);
-            return 'xatolik:' + ex;
-      }
+      // } catch (ex) {
+            // console.log('hujjatni topishda xatolik:' + ex);
+            // return 'Serverda utilmagan xatolik ro\'y berdi:' + ex;
+      // }
 }
 async function readUserId(id) {
       try {
             return await db.find({ _id: id });
       } catch (ex) {
             console.log('hujjatni id bo\'ylab izlashda xatolik');
-            return 'xatolik:' + ex;
+            return 'Serverda utilmagan xatolik ro\'y berdi:' + ex;
       }
 }
 async function updateUser(reqB) {
@@ -27,7 +27,7 @@ async function updateUser(reqB) {
             });
       } catch (ex) {
             console.log('hujjatni id bo\'ylab yangilashda xatolik');
-            return 'xatolik:' + ex;
+            return 'Serverda utilmagan xatolik ro\'y berdi:' + ex;
       }
 }
 async function deleteUser(id) {
@@ -35,7 +35,7 @@ async function deleteUser(id) {
             return await db.deleteOne({ _id: id });
       } catch (ex) {
             console.log('hujjatni o\'chirishda xatolik');
-            return 'xatolik:' + ex;
+            return 'Serverda utilmagan xatolik ro\'y berdi:' + ex;
       }
 }
 async function queryPerson(id) {
@@ -44,7 +44,7 @@ async function queryPerson(id) {
             .select('-password');
       } catch (ex) {
             console.log('shaxsni aniqlashda xatolik..');
-            return 'xatolik:' + ex;
+            return 'Serverda utilmagan xatolik ro\'y berdi:' + ex;
       }
 }
 module.exports = {

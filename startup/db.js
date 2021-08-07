@@ -1,9 +1,14 @@
 // mongoodbga ulanish va export qilish file
 const mongoose = require('mongoose');
+const winston = require('winston');
+require('winston-mongodb');
+
 
 mongoose.connect('mongodb://localhost/authentication', {
- useNewUrlParser: true,
- useUnifiedTopology: true
+useNewUrlParser: true,
+useCreateIndex: true,
+useUnifiedTopology: true,
+useFindAndModify: false
 })
  .then(() => {
   console.log('dbga ulanish amalga oshirildi...');

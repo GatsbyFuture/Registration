@@ -1,5 +1,5 @@
 // ulangan bazadan obj olish uchun..
-const db = require('../usedb/db');
+const db = require('../startup/db');
 // passvordni haslash uchun npm paketidan obj..
 const bcrypt = require('bcrypt');
 // formulani qisqartishish uchun lodash npm dan foydalanamiz

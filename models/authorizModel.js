@@ -1,5 +1,5 @@
 // ulangan bazadan obj olish uchun..
-const db = require('../usedb/db');
+const db = require('../startup/db');
 
 async function signin(reqB) {
   try {

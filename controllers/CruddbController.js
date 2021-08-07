@@ -11,15 +11,15 @@ class cruddbcontroller {
    res.send(answerZero);
  }
  async readAll(req, res) {
-  try {
+  // try {
    const answerOne = await readUsers();
    if (answerOne.length == 0)
     res.status(400).send({ header: "error", result: 'Bazada hech qanday malumot yo\'q' });
    else
     res.status(200).send({ header: "ok", result: answerOne });
-  } catch (ex) {
-   res.status(400).send('Malumotlarni o\'qishda xatolik' + ex);
-  }
+  // } catch (ex) {
+  //  res.status(500).send('Malumotlarni o\'qishda xatolik' + ex);
+  // }
  }
  async readId(req, res) {
   try {
@@ -47,7 +47,7 @@ class cruddbcontroller {
   try {
    const answerFour = await deleteUser(req.params.id);
    if (typeof (answerFour) == 'string' || answerFour.n == 0)
-    res.status(400).send({ header: "error", result: 'izlangan malumot mavzudmas!' });
+    res.status(500).send({ header: "error", result: answerFour });
    else
     res.status(200).send({ header: "ok", result: answerFour });
   } catch (ex) {
